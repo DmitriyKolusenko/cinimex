@@ -13,14 +13,6 @@ public class StringServiceImpl implements StringService {
     public OutputString getOutputString(InputString inputString) {
         String outputString = inputString.getInputString().replaceAll("\\s+", " ");
         outputString = outputString.toLowerCase();
-//        ObjectMapper objectMapper = new ObjectMapper();
-//
-//        try {
-//            return objectMapper.writeValueAsString(new OutputString(outputString));
-//        } catch (JsonProcessingException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
         return new OutputString(outputString);
     }
 }

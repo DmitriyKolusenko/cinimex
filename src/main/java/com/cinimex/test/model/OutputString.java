@@ -16,4 +16,16 @@ public class OutputString {
     public void setOutputString(String outputString) {
         this.outputString = outputString;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (!(object instanceof OutputString)) {
+            return false;
+        }
+        if (object == this) {
+            return true;
+        }
+        OutputString outputString = (OutputString)object;
+        return this.outputString.equals(outputString.outputString);
+    }
 }

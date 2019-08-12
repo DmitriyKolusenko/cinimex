@@ -1,5 +1,6 @@
 import com.cinimex.test.controller.MainController;
 import com.cinimex.test.model.InputString;
+import com.cinimex.test.model.OutputString;
 import com.cinimex.test.service.StringService;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +29,8 @@ public class MainControllerTest {
     @Test
     public void getMainControllerTest() {
         InputString inputString = new InputString("Asdf   fDf   F e");
-        when(stringService.getOutputString(inputString)).thenReturn("{\"outputString\":\"asdf fdf f e\"}");
-        assertEquals("{\"outputString\":\"asdf fdf f e\"}",mainController.getFormattedString(inputString));
+        OutputString outputString = new OutputString("asdf fdf f e");
+        when(stringService.getOutputString(inputString)).thenReturn(outputString);
+        assertEquals(outputString,mainController.getFormattedString(inputString));
     }
 }

@@ -16,4 +16,16 @@ public class InputString {
     public void setInputString(String inputString) {
         this.inputString = inputString;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (!(object instanceof InputString)) {
+            return false;
+        }
+        if (object == this) {
+            return true;
+        }
+        InputString inputString = (InputString)object;
+        return this.inputString.equals(inputString.inputString);
+    }
 }

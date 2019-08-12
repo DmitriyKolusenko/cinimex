@@ -1,4 +1,5 @@
 import com.cinimex.test.model.InputString;
+import com.cinimex.test.model.OutputString;
 import com.cinimex.test.service.StringService;
 import com.cinimex.test.service.impl.StringServiceImpl;
 import org.junit.Before;
@@ -13,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(MockitoJUnitRunner.class)
 public class StringServiceTest {
     @InjectMocks
-    StringServiceImpl stringService;
+    private StringServiceImpl stringService;
 
     @Before
     public void init() {
@@ -22,6 +23,6 @@ public class StringServiceTest {
     @Test
     public void getStringServiceTest() {
         InputString inputString = new InputString("ASdf   fF");
-        assertEquals("{\"outputString\":\"asdf ff\"}",stringService.getOutputString(inputString));
+        assertEquals(new OutputString("asdf ff"), stringService.getOutputString(inputString));
     }
 }

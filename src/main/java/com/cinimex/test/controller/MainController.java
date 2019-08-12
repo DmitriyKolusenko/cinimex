@@ -1,6 +1,7 @@
 package com.cinimex.test.controller;
 
 import com.cinimex.test.model.InputString;
+import com.cinimex.test.model.OutputString;
 import com.cinimex.test.service.StringService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,8 @@ public class MainController {
     }
 
     @RequestMapping(value = {"/format"}, method = RequestMethod.POST)
-    public @ResponseBody String getFormattedString(@RequestBody InputString string) {
+    public @ResponseBody
+    OutputString getFormattedString(@RequestBody InputString string) {
 
         return stringService.getOutputString(string);
     }

@@ -10,16 +10,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class StringServiceImpl implements StringService {
     @Override
-    public String getOutputString(InputString inputString) {
+    public OutputString getOutputString(InputString inputString) {
         String outputString = inputString.getInputString().replaceAll("\\s+", " ");
         outputString = outputString.toLowerCase();
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        try {
-            return objectMapper.writeValueAsString(new OutputString(outputString));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return null;
-        }
+//        ObjectMapper objectMapper = new ObjectMapper();
+//
+//        try {
+//            return objectMapper.writeValueAsString(new OutputString(outputString));
+//        } catch (JsonProcessingException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+        return new OutputString(outputString);
     }
 }
